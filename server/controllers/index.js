@@ -3,7 +3,7 @@ var models = require('../models');
 module.exports = {
   messages: {
     get: function (req, res) { // a function which handles a get request for all messages
-      console.log('Routed to controller.messages.get');
+      // console.log('Routed to controller.messages.get');
       models.messages.get(function(data) {
         res.json(data);
       });
@@ -12,7 +12,7 @@ module.exports = {
     post: function (req, res) {
       // console.log('Routed to controller.messages.post');
       var message = req.body;
-      // console.log('Controller post message: ', message);
+      console.log('Controller post message: ', message);
       models.messages.post(message, function() {
         res.send('success');
       });
@@ -22,7 +22,7 @@ module.exports = {
   users: {
     // Ditto as above
     get: function (req, res) {
-      console.log('Routed to controller.users.get');
+      // console.log('Routed to controller.users.get');
       models.users.get(function(data) {
         res.json(data);
       });

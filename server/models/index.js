@@ -9,14 +9,14 @@ module.exports = {
       });
     }, // a function which produces all the messages
     post: function (message, callback) {
-      console.log('message object recieved in models.messages.post: ', message);
+      // console.log('message object recieved in models.messages.post: ', message);
       db.query('INSERT INTO messages (text, usernameid, roomnameid) values ("' + message.message + '", "' + message.username + '", "' + message.roomname + '");',
         function (err, results) {
           if (err) {
             // console.log('error console ' + err);
             throw err;
           } else {
-            console.log('about to invoke callback for models.messages.post ', JSON.stringify(results));
+            // console.log('about to invoke callback for models.messages.post ', JSON.stringify(results));
             callback(err, JSON.stringify(results));
           }
         }); // a function which can be used to insert a message into the database

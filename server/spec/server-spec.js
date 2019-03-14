@@ -89,3 +89,6 @@ describe('Persistent Node Chat Server', function() {
     });
   });
 });
+
+// mysql insert: http://www.mysqltutorial.org/mysql-insert-statement.aspx
+// column count does not match value count error: https://stackoverflow.com/questions/24773064/error-er-wrong-value-count-on-row-column-count-doesnt-match-value-count-at-ro
