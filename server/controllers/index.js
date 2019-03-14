@@ -1,31 +1,32 @@
 var models = require('../models');
-const headers = {
-  'access-control-allow-origin': '*',
-  'access-control-allow-methods': 'GET, POST, PUT, DELETE, OPTIONS',
-  'access-control-allow-headers': 'content-type, accept',
-  'access-control-max-age': 10
-};
 
 module.exports = {
   messages: {
     get: function (req, res) { // a function which handles a get request for all messages
-      res.writeHead(200, headers);
-      console.log(req);
+      models.messages.get(function(data) {
+        res.json(data);
+      });
       //response should be the data of messages sent back
     }, 
     post: function (req, res) {
-      console.log(req);
-    } // a function which handles posting a message to the database
+      var message = req.body;
+      models.messages.post(message, function() {
+        res.send('success');
+      });
+    }, // a function which handles posting a message to the database
   },
 
   users: {
     // Ditto as above
     get: function (req, res) {
-      res.writeHead(200, headers);
-      console.log(req);
+      models.users.get(function(data) {
+        res.json(data);
+      });
     },
     post: function (req, res) {
-      console.log(req);
+      models.users.post(user, function() {
+        res.send('success');
+      });
     }
   }
 };
