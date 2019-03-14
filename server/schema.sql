@@ -35,18 +35,18 @@ ALTER TABLE messages ADD FOREIGN KEY (roomnameid) REFERENCES rooms(id);
  *    mysql -u root < server/schema.sql
  *  to create the database and the tables.*/
 
- insert into rooms (roomname) values ('room1'),
-  ('room2'),
-  ('room3'),
-  ('room4');
+--  insert into rooms (roomname) values ('room1'),
+--   ('room2'),
+--   ('room3'),
+--   ('room4');
 
-insert into users (username) values ('A'), ('B'), ('C'), ('D');
+-- insert into users (username) values ('A'), ('B'), ('C'), ('D');
 
-insert into messages (text, usernameid, roomnameid, createdAt) values ('whatever', 4, 1, STR_TO_DATE('1-01-2012', '%d-%m-%Y')),
-('test1', 4, 1, STR_TO_DATE('1-01-2012', '%d-%m-%Y')),
-('test2', 1, 2, STR_TO_DATE('1-01-2012', '%d-%m-%Y')),
-('test3', 2, 2, STR_TO_DATE('1-01-2012', '%d-%m-%Y')),
-('test5', 2, 3, STR_TO_DATE('1-01-2012', '%d-%m-%Y')),
-('test6', 2, 2, STR_TO_DATE('1-01-2012', '%d-%m-%Y')),
-('test4', 3, 1, STR_TO_DATE('1-01-2012', '%d-%m-%Y'));
+-- insert into messages (text, usernameid, roomnameid, createdAt) values ('whatever', 4, 1, STR_TO_DATE('1-01-2012', '%d-%m-%Y')),
+-- ('test1', 4, 1, STR_TO_DATE('1-01-2012', '%d-%m-%Y')),
+-- ('test2', 1, 2, STR_TO_DATE('1-01-2012', '%d-%m-%Y')),
+-- ('test3', 2, 2, STR_TO_DATE('1-01-2012', '%d-%m-%Y')),
+-- ('test5', 2, 3, STR_TO_DATE('1-01-2012', '%d-%m-%Y')),
+-- ('test6', 2, 2, STR_TO_DATE('1-01-2012', '%d-%m-%Y')),
+-- ('test4', 3, 1, STR_TO_DATE('1-01-2012', '%d-%m-%Y'));
 

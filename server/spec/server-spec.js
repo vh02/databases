@@ -10,12 +10,12 @@ describe('Persistent Node Chat Server', function() {
 
   beforeEach(function(done) {
     dbConnection = mysql.createConnection({
-      user: 'student',
-      password: 'student',
+      user: 'root', //'student' for pairing stations, 
+      password: 'password', //'student' for pairing stations, 
       database: 'chat'
     });
     dbConnection.connect();
-
+    console.log('connected');
     var tablename = 'messages'; // TODO: fill this out
 
     /* Empty the db table before each test so that multiple tests
@@ -51,8 +51,9 @@ describe('Persistent Node Chat Server', function() {
         // your message table, since this is schema-dependent.
         var queryString = 'SELECT text, username, createdAt, roomname FROM messages JOIN users ON messages.usernameid=users.id JOIN rooms ON messages.roomnameid=rooms.id;';//'SELECT * FROM messages';
         var queryArgs = [];
-        console.log(queryString, queryArgs);
+        
         dbConnection.query(queryString, queryArgs, function(err, results) {
+          console.log(results);
           // Should have one result:
           expect(results.length).to.equal(1);
 
