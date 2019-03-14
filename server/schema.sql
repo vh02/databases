@@ -2,14 +2,6 @@ CREATE DATABASE chat;
 
 USE chat;
 
-CREATE TABLE messages (
-  /* Describe your table here.*/
-id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-text VARCHAR(140) NOT NULL,
-createdAt DATE NOT NULL,
-usernameid INTEGER,
-roomnameid INTEGER
-);
 
 /* Create other tables and define schemas for them here! */
 CREATE TABLE rooms (
@@ -22,8 +14,17 @@ id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
 username VARCHAR(16) NOT NULL
 );
 
-ALTER TABLE messages ADD FOREIGN KEY (usernameid) REFERENCES users(id);
-ALTER TABLE messages ADD FOREIGN KEY (roomnameid) REFERENCES rooms(id);
+CREATE TABLE messages (
+  /* Describe your table here.*/
+id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+text VARCHAR(140) NOT NULL,
+usernameid VARCHAR(16),
+roomnameid VARCHAR(16)
+-- FOREIGN KEY (usernameid) REFERENCES users(id),
+-- FOREIGN KEY (roomnameid) REFERENCES rooms(id)
+);
+-- ALTER TABLE messages ADD FOREIGN KEY (usernameid) REFERENCES users(id);
+-- ALTER TABLE messages ADD FOREIGN KEY (roomnameid) REFERENCES rooms(id);
 
 -- CREATE TABLE userroom (
 -- FOREIGN KEY (usernameid) REFERENCES roomname(id),

@@ -10,9 +10,9 @@ module.exports = {
       //response should be the data of messages sent back
     }, 
     post: function (req, res) {
-      console.log('Routed to controller.messages.post');
+      // console.log('Routed to controller.messages.post');
       var message = req.body;
-      console.log('Controller post message: ', message);
+      // console.log('Controller post message: ', message);
       models.messages.post(message, function() {
         res.send('success');
       });
@@ -28,9 +28,9 @@ module.exports = {
       });
     },
     post: function (req, res) {
-      console.log('Routed to controller.messages.post');
+      // console.log('Routed to controller.users.post');
       var user = req.body;
-      console.log('Controller post user: ', user);
+      // console.log('Controller post user: ', user);
       models.users.post(user, function() {
         res.send('success');
       });

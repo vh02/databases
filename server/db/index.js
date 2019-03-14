@@ -6,7 +6,7 @@ var mysql = require('mysql');
 
 module.exports.dbConnection = mysql.createConnection({
   host: 'localhost',
-  user: 'root', //'root' for personal, 'student' for pairing stations
-  password: 'password', //'' for personal, 'student' for pairing stations
+  user: 'student', //'root' for personal, 'student' for pairing stations
+  password: 'student', //'' for personal, 'student' for pairing stations
   database: 'chat'
 });
