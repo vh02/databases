@@ -20,11 +20,11 @@ id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
 text VARCHAR(140) NOT NULL,
 usernameid VARCHAR(16),
 roomnameid VARCHAR(16)
--- FOREIGN KEY (usernameid) REFERENCES users(id),
--- FOREIGN KEY (roomnameid) REFERENCES rooms(id)
 );
--- ALTER TABLE messages ADD FOREIGN KEY (usernameid) REFERENCES users(id);
--- ALTER TABLE messages ADD FOREIGN KEY (roomnameid) REFERENCES rooms(id);
+-- ALTER TABLE messages ADD FOREIGN KEY (usernameid) REFERENCES `users`(`id`);
+-- ALTER TABLE messages ADD FOREIGN KEY (roomnameid) REFERENCES `rooms`(`id`);
+
+-- FOR FOREIGN KEYS: https://www.rathishkumar.in/2016/01/solved-how-to-solve-mysql-error-code.html
 
 -- CREATE TABLE userroom (
 -- FOREIGN KEY (usernameid) REFERENCES roomname(id),
