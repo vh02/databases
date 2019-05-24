@@ -10,13 +10,13 @@ describe('Persistent Node Chat Server', function() {
 
   beforeEach(function(done) {
     dbConnection = mysql.createConnection({
-      user: 'student', //'student' for pairing stations, 
-      password: 'student', //'student' for pairing stations, 
+      user: 'student',
+      password: 'student',
       database: 'chat'
     });
     dbConnection.connect();
-    console.log('connected');
-    var tablename = 'messages'; // TODO: fill this out
+
+       var tablename = ""; // TODO: fill this out
 
     /* Empty the db table before each test so that multiple tests
      * (or repeated runs of the tests) won't screw each other up: */
@@ -49,11 +49,10 @@ describe('Persistent Node Chat Server', function() {
 
         // TODO: You might have to change this test to get all the data from
         // your message table, since this is schema-dependent.
-        var queryString = 'SELECT text, usernameid, roomnameid FROM messages;';//'SELECT * FROM messages';
+        var queryString = 'SELECT * FROM messages';
         var queryArgs = [];
-        
+
         dbConnection.query(queryString, queryArgs, function(err, results) {
-          console.log(results.length);
           // Should have one result:
           expect(results.length).to.equal(1);
 
@@ -68,8 +67,8 @@ describe('Persistent Node Chat Server', function() {
 
   it('Should output all messages from the DB', function(done) {
     // Let's insert a message into the db
-    var queryString = 'INSERT INTO messages (text, usernameid, roomnameid) values ("Men like you can never change!", "21", "1");';
-    var queryArgs = [];
+       var queryString = "";
+       var queryArgs = [];
     // TODO - The exact query string and query args to use
     // here depend on the schema you design, so I'll leave
     // them up to you. */
@@ -81,14 +80,10 @@ describe('Persistent Node Chat Server', function() {
       // the message we just inserted:
       request('http://127.0.0.1:3000/classes/messages', function(error, response, body) {
         var messageLog = JSON.parse(body);
-        console.log('returning messageLog to test: ', messageLog);
         expect(messageLog[0].text).to.equal('Men like you can never change!');
-        expect(messageLog[0].roomnameid).to.equal('1');
+        expect(messageLog[0].roomname).to.equal('main');
         done();
       });
     });
   });
 });
-
-// mysql insert: http://www.mysqltutorial.org/mysql-insert-statement.aspx
-// column count does not match value count error: https://stackoverflow.com/questions/24773064/error-er-wrong-value-count-on-row-column-count-doesnt-match-value-count-at-ro
