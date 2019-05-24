@@ -1,4 +1,4 @@
-var controller = require('./controllers/index.js');
+var controller = require('./controllers');
 var router = require('express').Router();
 
 //Connect controller methods to their corresponding routes
@@ -12,6 +12,4 @@ router.post('/users', controller.users.post);
 
 
 module.exports = router;
-
-//handling the handoff from api calls to the controllers functions
 
